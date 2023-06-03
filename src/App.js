@@ -6,8 +6,9 @@ import { useMemo, useState } from "react";
 import Body from "./components/Body";
 import { Provider } from "react-redux";
 import store from "./store";
-import Image from "../src/img/icons8-menu-24.png";
+// import Image from "../src/img/icons8-menu-24.png";
 import React from "react";
+
 function App() {
   const [toggle, setToggle] = useState(false);
   const tog = () => {};
