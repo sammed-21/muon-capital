@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+0x5ABa302a5174B4c15B35e273B7584a59dc1dB397 todolist smart contract address
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
