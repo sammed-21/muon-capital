@@ -1,4 +1,4 @@
-import React, { useState ,useContext} from "react";
+import React, { useContext} from "react";
 import Image from "../img/My project.png";
  import ThemeContext from "../context/ThemeContext";
  
@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="flex  justify-end bg-[#242731] px-8 items-center text-white border-white rounded-lg">
           <button className="flex items-center">
 
-            <img src={Image} width={40} height={40} />
+            <img alt="wallet " src={Image} width={40} height={40} />
             <h1>connect</h1>
           </button>
         </div>
