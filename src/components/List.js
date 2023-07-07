@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AddNew from "./AddNew";
 import Card from "./Card";
-import Cards from "./CardList";
+import CardList from "./CardList";
 import { useSelector } from "react-redux";
-
+// import { setShowCart } from "../store/listSlice";
 import { useDispatch } from "react-redux";
 import RightSideBar from "./RightSideBar";
-
+import ThemeContext from "../context/ThemeContext";
 const List = () => {
   let dispatch = useDispatch();
   const listItem = useSelector((store) => store.listSlice.list);
+  const showRight = useSelector((store) => store.listSlice.setShow);
   const [selectedTodo, setSelectedTodo] = useState(false);
   const [childrenId, setChildrenId] = useState("");
   const [parentId, setParentId] = useState("");
   const [editValueTitle, setEditValueTitle] = useState("");
   const [editValueDesc, setEditValueDesc] = useState("");
-
+  const { darkMode } = useContext(ThemeContext)
+  useEffect(() => {}, []);
   const handleEditClick = (childrenId) => {
     let todo;
+    // setSelectedTodo();
     listItem.forEach((list) => {
       if (list.children) {
         todo = list.children.find((child) => child.id === childrenId);
@@ -34,8 +37,8 @@ const List = () => {
   };
 
   return (
-    <div className="flex justify-between items-start w-full">
-      <div className="flex justify-start gap-4 border-r-2 h-full border-gray-600 w-full z-10">
+    <div className={`${darkMode ? "dark" : "light"} flex justify-between items-start w-full`}>
+      <div className={`${darkMode ? "dark" : "text-light"} flex justify-start gap-4 border-r-2 h-full border-gray-600 w-full z-10`}>
         <div className="gap-2 h-auto w-fixed rounded-md flex">
           {listItem.length > 0 &&
             listItem.map((list) => (
@@ -45,13 +48,13 @@ const List = () => {
                 <div className="p-1 h-[6vh] flex  gap-3 flex-col text-lg  px-1 justify-center rounded-md   bg-[#242731] w-full">
                   <a className="text-md  px-3 font-semibold ">{list.title}</a>
                 </div>
-                <div className="pt-3 w-full flex flex-col justify-center  rounded-md bg-[#191B20]">
+                <div className="pt-3 w-full flex flex-col justify-center  rounded-md bg-[#242731]">
                   <Card type="card" parentId={list.id} />
                 </div>
                 {list?.children?.length > 0 &&
                   list.children.map((children) => (
-                    <div className="rounded-md bg-[#191B20] flex flex-col  ">
-                      <Cards
+                    <div className="rounded-md bg-[#242731] flex flex-col  ">
+                      <CardList
                         key={children.id}
                         cardInfo={children}
                         parentIda={list.id}
@@ -62,7 +65,7 @@ const List = () => {
               </div>
             ))}
         </div>
-        <div className="p-1 h-[6vh] fontbold  backdrop:rounded-md bg-[#242731] w-[300px]">
+        <div className="p-1 h-[6vh] fontbold  backdrop:rounded-md bg-[#191B20] w-[300px]">
           {/* <div className="text-white">List : Thinks to Buy</div> */}
           <AddNew type="card" />
         </div>
@@ -73,9 +76,7 @@ const List = () => {
           title={editValueTitle}
           desc={editValueDesc}
           parentId={parentId}
-          vis={() => {
-            setSelectedTodo(!selectedTodo);
-          }}
+          vis={() => setSelectedTodo(!selectedTodo)}
         />
       )}
     </div>
