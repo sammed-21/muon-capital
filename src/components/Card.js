@@ -31,7 +31,7 @@ const Card = ({ parentId, cardInfo }) => {
       <form onSubmit={handleSubmit} className="flex gap-2 flex-col ">
         <div className="flex  items-center justify-start px-2 ">
           <div className="flex gap-1 px-3">
-            <img src={Image} width={30} height={30} />
+            <img src={Image} alt="add" width={30} height={30} />
             <input
               className="bg-transparent text-[#6E6E6E] border-none "
               value={inputVal}
@@ -40,7 +40,7 @@ const Card = ({ parentId, cardInfo }) => {
             />
           </div>
           <button type="submit" className="pl-3">
-            <img src={Image1} width={30} height={30} />
+            <img src={Image1} alt="button" width={30} height={30} />
           </button>
         </div>
         <div className="flex  items-center justify-start px-5 ">

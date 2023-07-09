@@ -34,15 +34,15 @@ const RightSideBar = ({ id, title, desc, parentId, vis }) => {
   };
 
   return (
-    <div className="flex py-6 gap-3 justify-items-start font-semibold flex-col bg-black-400  text-white   relative align-center  right-0 z-100 float-right w-[300px] h-[90vh] ">
+    <div className="flex py-6 gap-3 justify-items-start font-semibold flex-col bg-[#3b74f8ee]    text-white align-center  fixed z-100 right-0 top-0 float-right w-[300px] h-[100%] ">
       <div className="flex w-full flex-start justify-start items-center px-3">
-        <img src={Image} width={30} height={30} onClick={vis} />
+        <img src={Image} width={30} height={30} alt="edit" onClick={vis} />
         <h1 className="px-3">Edit Todo</h1>
       </div>
       <div className="flex rounded-md gap-3 p-2 flex-col justify-start items-center w-full">
         <div className="py-2 px-2 rounded-md fontbold bg-[#242731] ">
           <input
-            className="bg-transparent text-[#6E6E6E] border-none "
+            className="bg-transparent text-[#fff] border-none "
             value={newTitle}
             placeholder={setNewTitle}
             onChange={handleInputChange}
@@ -50,7 +50,7 @@ const RightSideBar = ({ id, title, desc, parentId, vis }) => {
         </div>
         <div className="flex items-start justify-start rounded-md bg-[#242731] h-[15vh]  font-semibold py-2 px-5">
           <input
-            className="bg-transparent text-[#6E6E6E] border-none "
+            className="bg-transparent text-[#fff] border-none "
             value={newDescription}
             placeholder={setNewDescription}
             onChange={handleDescChange}
@@ -59,9 +59,11 @@ const RightSideBar = ({ id, title, desc, parentId, vis }) => {
         <button
           type="submit "
           onClick={handleEdit}
-          className="w-[230px] bg-[#3772FF] font-semibold py-2"
+          
+          className="w-[230px] bg-[#242731] font-semibold py-2"
         >
-          Save
+          <span onClick={vis}> Save</span>
+         
         </button>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Image from "../img/—Pngtree—vector plus icon_4255451.png";
 import { useDispatch } from "react-redux";
-import { addList, addCard } from "../store/listSlice";
+import { addList } from "../store/listSlice";
 const AddNew = () => {
   const dispatch = useDispatch();
   const [inputVal, setInputVal] = useState("");
@@ -26,7 +26,7 @@ const AddNew = () => {
             onChange={(e) => setInputVal(e.target.value)}
           />
           <button type="submit" className="text-white ">
-            <img src={Image} width={20} height={30} />
+            <img src={Image} alt="profile" width={20} height={30} />
           </button>
         </div>
       </form>

@@ -5,9 +5,9 @@ import ThemeContext from "../context/ThemeContext";
 const Body = () => {
   const { darkMode } = useContext(ThemeContext)
   return (
-    <div className={`${darkMode ? "dark" : "light"} w-full h-[100vh] border-l-2 border-gray-600 overflow-hidden `}>
+    <div className={`${darkMode ? "dark" : "light"} w-full h-[100vh]    snap-x  border-l-2 border-gray-600 overflow-hidden `}>
       <Navbar />
-      <div className=" flex gap-3 w-full  p-3">
+      <div className=" flex gap-3 w-full  overflow-x-auto min-h-[90vh]  p-3">
         <List />
       </div>
     </div>
